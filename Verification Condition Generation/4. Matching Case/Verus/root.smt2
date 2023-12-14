@@ -559,13 +559,12 @@
     (Verus_file!Operator./Add/?_0 Int)
    ) (Verus_file!Operator./Minus (Verus_file!Operator./Minus/?_0 Int)) (Verus_file!Operator./Multiply
     (Verus_file!Operator./Multiply/?_0 Int)
-   ) (Verus_file!Operator./Divide (Verus_file!Operator./Divide/?_0 Int))
+   )
   ) ((tuple%0./tuple%0))
 ))
 (declare-fun Verus_file!Operator./Add/_0 (Verus_file!Operator.) Int)
 (declare-fun Verus_file!Operator./Minus/_0 (Verus_file!Operator.) Int)
 (declare-fun Verus_file!Operator./Multiply/_0 (Verus_file!Operator.) Int)
-(declare-fun Verus_file!Operator./Divide/_0 (Verus_file!Operator.) Int)
 (declare-const TYPE%Verus_file!Operator. Type)
 (declare-const TYPE%tuple%0. Type)
 (declare-fun Poly%Verus_file!Operator. (Verus_file!Operator.) Poly)
@@ -609,13 +608,6 @@
    :pattern ((Verus_file!Operator./Multiply/_0 x@))
    :qid internal_Verus_file!Operator./Multiply/_0_accessor_definition
    :skolemid skolem_internal_Verus_file!Operator./Multiply/_0_accessor_definition
-)))
-(assert
- (forall ((x@ Verus_file!Operator.)) (!
-   (= (Verus_file!Operator./Divide/_0 x@) (Verus_file!Operator./Divide/?_0 x@))
-   :pattern ((Verus_file!Operator./Divide/_0 x@))
-   :qid internal_Verus_file!Operator./Divide/_0_accessor_definition
-   :skolemid skolem_internal_Verus_file!Operator./Divide/_0_accessor_definition
 )))
 (assert
  (forall ((x@ Verus_file!Operator.)) (!
@@ -672,23 +664,17 @@
         ((a~21$ (Verus_file!Operator./Minus/_0 (%Poly%Verus_file!Operator. op~4@))))
         (Sub (%I x~2@) a~21$)
        )
-       (ite
-        (is-Verus_file!Operator./Multiply (%Poly%Verus_file!Operator. op~4@))
-        (let
-         ((a~32$ (Verus_file!Operator./Multiply/_0 (%Poly%Verus_file!Operator. op~4@))))
-         (Mul (%I x~2@) a~32$)
-        )
-        (let
-         ((a~43$ (Verus_file!Operator./Divide/_0 (%Poly%Verus_file!Operator. op~4@))))
-         (EucDiv (%I x~2@) a~43$)
-    )))))
+       (let
+        ((a~32$ (Verus_file!Operator./Multiply/_0 (%Poly%Verus_file!Operator. op~4@))))
+        (Mul (%I x~2@) a~32$)
+    ))))
     :pattern ((Verus_file!Matching.? x~2@ op~4@))
     :qid internal_Verus_file!Matching.?_definition
     :skolemid skolem_internal_Verus_file!Matching.?_definition
 ))))
 
 ;; Function-Def Verus_file::Testing
-;; ./Verus_file.rs:22:8: 22:20 (#0)
+;; ./Verus_file.rs:20:8: 20:20 (#0)
 (push)
  (declare-const no%param@ Int)
  (declare-const tmp%1@ Bool)
@@ -721,7 +707,7 @@
 (pop)
 
 ;; Function-Def Verus_file::main
-;; ./Verus_file.rs:27:2: 27:11 (#0)
+;; ./Verus_file.rs:25:2: 25:11 (#0)
 (push)
  (declare-const no%param@ Int)
  (assert
